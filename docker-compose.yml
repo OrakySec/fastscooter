@@ -1,7 +1,30 @@
+# ATENÇÃO: ajuste os valores abaixo conforme o seu setup do Traefik:
+# - network "traefik": troque se sua network externa do Traefik tiver outro nome
+#   (rode `docker network ls` no servidor pra checar)
+# - certresolver "letsencrypt": troque pro nome do resolver configurado no seu Traefik
+#   (fica no comando/config de start do Traefik, ex: --certificatesresolvers.<nome>...)
+# - entrypoint "websecure": troque se seu Traefik usar outro nome de entrypoint HTTPS
+
 services:
   fastscooter:
     image: ghcr.io/orakysec/fastscooter:latest
     container_name: fastscooter
     restart: unless-stopped
-    ports:
-      - "3000:3000"
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fastscooter.rule=Host(`fastscooter.com.br`) || Host(`www.fastscooter.com.br`)"
+      - "traefik.http.routers.fastscooter.entrypoints=websecure"
+      - "traefik.http.routers.fastscooter.tls=true"
+      - "traefik.http.routers.fastscooter.tls.certresolver=letsencrypt"
+      - "traefik.http.services.fastscooter.loadbalancer.server.port=3000"
+      # redireciona www -> domínio raiz (opcional, remova se não quiser)
+      - "traefik.http.middlewares.fastscooter-wwwredirect.redirectregex.regex=^https://www\\.fastscooter\\.com\\.br/(.*)"
+      - "traefik.http.middlewares.fastscooter-wwwredirect.redirectregex.replacement=https://fastscooter.com.br/$${1}"
+      - "traefik.http.middlewares.fastscooter-wwwredirect.redirectregex.permanent=true"
+      - "traefik.http.routers.fastscooter.middlewares=fastscooter-wwwredirect"
+
+networks:
+  traefik:
+    external: true
