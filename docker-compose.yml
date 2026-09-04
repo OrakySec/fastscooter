@@ -4,7 +4,7 @@ services:
   web:
     image: ghcr.io/orakysec/fastscooter:latest
     networks:
-      - FastScooterNET
+      - DrIsisNET
     deploy:
       mode: replicated
       replicas: 1
@@ -16,5 +16,5 @@ services:
         - "traefik.http.services.fastscooter.loadbalancer.server.port=3000"
 
 networks:
-  FastScooterNET:
+  DrIsisNET:
     external: true
