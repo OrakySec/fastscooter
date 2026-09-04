@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastScooter | Especificações do Modelo</title>
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Suite de Rastreamento (Meta Ads + Google Ads + GA4) -->
+    <script src="tracking.js" defer></script>
+
+    <style>
+        .product-page-section {
+            padding: 40px 0 80px;
+            background: #FFFFFF;
+            min-height: calc(100vh - 84px);
+        }
+        .back-nav-bar {
+            margin-bottom: 2rem;
+        }
+        .back-btn-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-hero);
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 8px 18px;
+            background: var(--bg-page);
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--radius-full);
+            transition: all 0.25s ease;
+        }
+        .back-btn-pill:hover {
+            border-color: var(--text-hero);
+            background: #FFFFFF;
+            transform: translateX(-4px);
+        }
+        .product-editorial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .product-editorial-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+        .product-stage-box {
+            background: radial-gradient(circle at 50% 50%, #F5F7FA 0%, #FFFFFF 80%);
+            border: 1.5px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 110px;
+            box-shadow: var(--shadow-card);
+        }
+        .product-stage-main-img {
+            max-width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+            filter: drop-shadow(0 25px 35px rgba(9, 10, 12, 0.12));
+            transition: transform 0.4s ease;
+        }
+        .product-stage-main-img:hover {
+            transform: scale(1.04);
+        }
+        .p-badge-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--electric-green-dark);
+            background: var(--electric-green-light);
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 0.8rem;
+        }
+        .p-headline-title {
+            font-family: var(--font-heading);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--text-hero);
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+        .p-headline-desc {
+            font-size: 1.02rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 2rem;
+        }
+        .p-specs-matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 2rem;
+            background: var(--bg-page);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 1.4rem;
+        }
+        .p-spec-tile {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .p-spec-tile span {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .p-spec-tile strong {
+            font-size: 1rem;
+            color: var(--text-hero);
+            font-weight: 700;
+        }
+        .p-color-swatches-group {
+            margin-bottom: 2rem;
+        }
+        .p-color-swatches-group h4 {
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .p-color-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .p-color-pill {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-light);
+            color: var(--text-hero);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+        }
+        .p-checkout-card {
+            background: #FFFFFF;
+            border: 1.5px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 1.5rem;
+        }
+        .p-price-old-strike {
+            font-size: 0.88rem;
+            color: var(--text-subtle);
+            text-decoration: line-through;
+            display: block;
+        }
+        .p-price-installments-lg {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-hero);
+            line-height: 1.2;
+            margin: 4px 0;
+        }
+        .p-price-cash-highlight {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--electric-green-dark);
+            display: block;
+            margin-bottom: 8px;
+        }
+        .p-price-extra-notes {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+        .p-btn-order-wa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 18px 28px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            border-radius: var(--radius-full);
+            background: #25D366;
+            color: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+        .p-btn-order-wa:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+        }
+        @media (max-width: 768px) {
+            .product-page-section {
+                padding: 20px 0 50px;
+            }
+            .product-editorial-grid {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+            .product-stage-box {
+                position: static;
+                padding: 1.8rem 1rem;
+                height: 250px;
+                border-radius: 18px;
+            }
+            .product-stage-main-img {
+                max-height: 220px;
+            }
+            .p-headline-title {
+                font-size: 1.85rem;
+                letter-spacing: -0.5px;
+            }
+            .p-headline-desc {
+                font-size: 0.92rem;
+                margin-bottom: 1.5rem;
+            }
+            .p-specs-matrix {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                padding: 1rem;
+            }
+            .p-spec-tile span {
+                font-size: 0.68rem;
+            }
+            .p-spec-tile strong {
+                font-size: 0.88rem;
+            }
+            .p-checkout-card {
+                padding: 1.4rem;
+                border-radius: 18px;
+            }
+            .p-price-installments-lg {
+                font-size: 1.45rem;
+            }
+            .p-price-cash-highlight {
+                font-size: 1rem;
+            }
+            .p-btn-order-wa {
+                padding: 15px 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                FAST<span>SCOOTER</span>
+                <div class="brand-logo-dot"></div>
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html#showroom">Showroom</a>
+                <a href="index.html#economia">Calculadora</a>
+                <a href="index.html#modelos">Modelos</a>
+                <a href="index.html#oficina">Oficina</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://api.whatsapp.com/send?phone=5581996356458" target="_blank" class="btn-header-wa">
+                    <i data-feather="message-circle" style="width:16px; height:16px;"></i> (81) 99635-6458
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-page-section">
+        <div class="container">
+            <div class="back-nav-bar">
+                <a href="index.html#modelos" class="back-btn-pill">
+                    <i data-feather="arrow-left" style="width:16px; height:16px;"></i> Voltar para o Catálogo
+                </a>
+            </div>
+
+            <div class="product-editorial-grid">
+                <!-- Coluna Imagem Estúdio -->
+                <div class="product-stage-box">
+                    <img id="p-img" src="" alt="Produto FastScooter" class="product-stage-main-img">
+                </div>
+
+                <!-- Coluna Conteúdo & Ficha -->
+                <div class="product-details-content">
+                    <div class="p-badge-eyebrow">
+                        <span>⚡ 100% ELÉTRICO • PRONTA ENTREGA</span>
+                    </div>
+
+                    <h1 id="p-title" class="p-headline-title">CARREGANDO...</h1>
+                    <p id="p-desc" class="p-headline-desc"></p>
+
+                    <!-- Matriz de Especificações -->
+                    <div class="p-specs-matrix" id="p-specs"></div>
+
+                    <!-- Cores -->
+                    <div class="p-color-swatches-group" id="p-colors-box">
+                        <h4>🎨 Cores & Acabamentos</h4>
+                        <div class="p-color-pills-row" id="p-colors"></div>
+                    </div>
+
+                    <!-- Bloco de Preços -->
+                    <div class="p-checkout-card">
+                        <span id="p-old-price" class="p-price-old-strike"></span>
+                        <div id="p-price" class="p-price-installments-lg"></div>
+                        <span id="p-cash-price" class="p-price-cash-highlight"></span>
+                        <p id="p-installments" class="p-price-extra-notes"></p>
+                    </div>
+
+                    <!-- CTA WhatsApp -->
+                    <a id="p-wa-btn" href="#" target="_blank" class="p-btn-order-wa">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                        FALAR COM CONSULTOR / COMPRAR NO WHATSAPP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-bottom-bar">
+            <p>&copy; 2026 FastScooter Brasil. Av. Conselheiro Aguiar, 4880 - Boa Viagem, Recife/PE.</p>
+            <p>Atendimento Especializado: (81) 99635-6458</p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+
+        const PRODUCTS_DATA = {
+            s15: {
+                title: "SCOOTER S15 1000W",
+                img: "prod_s15.jpeg",
+                desc: "A S15 foi projetada para quem busca o ápice de autonomia e conforto urbano. Equipada com bateria de 60V 30Ah de alta densidade, visual imponente e torque instantâneo de 135 N.m, é a escolha ideal para percorrer distâncias maiores com tranquilidade e estilo.",
+                specs: [
+                    { label: "Potência do Motor", val: "1000W Brushless" },
+                    { label: "Bateria", val: "60V 30Ah Lítio" },
+                    { label: "Velocidade Máxima", val: "32 km/h" },
+                    { label: "Autonomia por Carga", val: "Até 90 km" },
+                    { label: "Torque Máximo", val: "135 N.m" },
+                    { label: "Tempo de Recarga", val: "Aprox. 6h10min" }
+                ],
+                colors: ["Preto Ônix", "Vermelho Rubi", "Branco Pérola", "Verde Limão", "Fibra de Carbono"],
+                oldPrice: "De R$ 15.900,00",
+                price: "12x de R$ 1.286,00 (ou em até 24x)",
+                cashPrice: "À vista no PIX com desconto: R$ 13.600,00",
+                priceNum: 13600,
+                installments: "Aceitamos os principais cartões com parcelamento em até 24x e simulação imediata.",
+                msg: "Olá! Gostaria de saber mais informações e fechar a compra da Scooter S15."
+            },
+            a5: {
+                title: "SCOOTER A5 1000W (2 LUGARES)",
+                img: "prod_a5.jpeg",
+                desc: "Praticidade absoluta para o dia a dia! Bateria de lítio removível para você recarregar no apartamento ou no trabalho, assento duplo confortável para 2 passageiros (suporta até 180kg), sem exigência de CNH e sem emplacamento. Conta ainda com alarme integrado, baú sob o banco, saída USB e controle de cruzeiro.",
+                specs: [
+                    { label: "Potência do Motor", val: "1000W | 60V" },
+                    { label: "Bateria", val: "Lítio Removível 24Ah" },
+                    { label: "Capacidade de Carga", val: "Até 180 kg (2 Pessoas)" },
+                    { label: "Autonomia por Carga", val: "Até 60 km" },
+                    { label: "Regulamentação", val: "Sem CNH e Sem Emplacamento" },
+                    { label: "Tempo de Recarga", val: "Aprox. 5 horas" }
+                ],
+                colors: ["Preto Fosco", "Prata Lunar", "Vermelho Candy", "Verde Neon"],
+                oldPrice: "De R$ 15.750,00",
+                price: "12x de R$ 1.228,00 (ou em até 24x)",
+                cashPrice: "À vista no PIX com desconto: R$ 12.990,00",
+                priceNum: 12990,
+                installments: "Simulação flexível com entrada ou parcelamento em até 24x no cartão de crédito.",
+                msg: "Olá! Gostaria de saber mais informações e fazer uma simulação para a Scooter A5 1000W."
+            },
+            g12: {
+                title: "SCOOTER IRUN G12",
+                img: "prod_g12.jpeg",
+                desc: "A IRUN G12 une estética esportiva, cockpit moderno e excelente autonomia para o seu cotidiano. Seu chassi equilibrado aliado à bateria de 60V 30Ah oferece aceleração progressiva, freios seguros e uma condução prazerosa em qualquer trajeto urbano.",
+                specs: [
+                    { label: "Potência do Motor", val: "1000W" },
+                    { label: "Bateria", val: "60V 30Ah Lítio" },
+                    { label: "Velocidade Máxima", val: "32 km/h" },
+                    { label: "Autonomia por Carga", val: "Até 90 km" },
+                    { label: "Torque Máximo", val: "125 N.m" },
+                    { label: "Tempo de Recarga", val: "Aprox. 6h10min" }
+                ],
+                colors: ["Preto Metálico", "Branco Glacial", "Vermelho Sport", "Cinza Nardo"],
+                oldPrice: "De R$ 15.500,00",
+                price: "12x de R$ 1.278,00 (ou em até 24x)",
+                cashPrice: "À vista no PIX com desconto: R$ 13.490,00",
+                priceNum: 13490,
+                installments: "Aceitamos os principais cartões com parcelamento em até 24x.",
+                msg: "Olá! Gostaria de saber mais informações e fechar a compra da IRUN G12."
+            }
+        };
+
+        const PHONE_NUMBER = "5581996356458";
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || 's15';
+        const product = PRODUCTS_DATA[productId] || PRODUCTS_DATA['s15'];
+
+        document.title = `FastScooter | ${product.title}`;
+        document.getElementById('p-title').textContent = product.title;
+        document.getElementById('p-img').src = product.img;
+        document.getElementById('p-img').alt = product.title;
+        document.getElementById('p-desc').textContent = product.desc;
+
+        // Specs Matrix
+        const specsContainer = document.getElementById('p-specs');
+        specsContainer.innerHTML = '';
+        product.specs.forEach(s => {
+            const tile = document.createElement('div');
+            tile.className = 'p-spec-tile';
+            tile.innerHTML = `<span>${s.label}</span><strong>${s.val}</strong>`;
+            specsContainer.appendChild(tile);
+        });
+
+        // Colors
+        const colorsContainer = document.getElementById('p-colors');
+        colorsContainer.innerHTML = '';
+        if (product.colors && product.colors.length) {
+            product.colors.forEach(c => {
+                const pill = document.createElement('span');
+                pill.className = 'p-color-pill';
+                pill.textContent = c;
+                colorsContainer.appendChild(pill);
+            });
+        } else {
+            document.getElementById('p-colors-box').style.display = 'none';
+        }
+
+        // Prices
+        document.getElementById('p-old-price').textContent = product.oldPrice;
+        document.getElementById('p-price').textContent = product.price;
+        document.getElementById('p-cash-price').textContent = product.cashPrice;
+        document.getElementById('p-installments').textContent = product.installments;
+
+        // WhatsApp CTA
+        const waBtn = document.getElementById('p-wa-btn');
+        const encodedMsg = encodeURIComponent(product.msg);
+        waBtn.href = `https://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${encodedMsg}`;
+        waBtn.setAttribute('data-track', 'buy');
+        waBtn.setAttribute('data-product-id', productId);
+        waBtn.setAttribute('data-product-name', product.title);
+        waBtn.setAttribute('data-product-price', product.priceNum);
+        waBtn.setAttribute('data-track-source', 'product_page_buy');
+
+        // Disparo automático de ViewContent / view_item
+        window.addEventListener('load', () => {
+            if (window.FastTracking) {
+                window.FastTracking.trackViewContent({
+                    id: productId,
+                    name: product.title,
+                    price: product.priceNum,
+                    category: 'Scooters Elétricas'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

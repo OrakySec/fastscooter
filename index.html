@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastScooter | Mobilidade Elétrica de Alta Performance</title>
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Estilos Principais -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Suite de Rastreamento (Meta Ads + Google Ads + GA4) -->
+    <script src="tracking.js" defer></script>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-box">
+            <div class="preloader-battery">
+                <div class="preloader-fill" id="preloader-bar"></div>
+            </div>
+            <div class="preloader-val" id="preloader-val">0%</div>
+            <div class="preloader-text">FASTSCOOTER • STUDIO</div>
+        </div>
+    </div>
+
+    <!-- Topbar com Status da Loja -->
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <div class="topbar-status">
+                <span class="status-dot-pulse"></span>
+                <span>Atendimento Online • Loja Física em Boa Viagem (Recife/PE)</span>
+            </div>
+            <div class="topbar-contact">
+                <span>⚡ Enviamos para todo o Brasil</span>
+                <a href="https://api.whatsapp.com/send?phone=5581996356458" target="_blank" class="topbar-link">
+                    <i data-feather="message-circle" style="width:14px; height:14px;"></i> (81) 99635-6458
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                FAST<span>SCOOTER</span>
+                <div class="brand-logo-dot"></div>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#showroom">Showroom</a>
+                <a href="#economia">Calculadora</a>
+                <a href="#modelos">Modelos</a>
+                <a href="#oficina">Oficina & Peças</a>
+                <a href="#faq">Dúvidas</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor%20da%20FastScooter." target="_blank" class="btn-header-wa" data-track-source="header_whatsapp">
+                    <i data-feather="message-square" style="width:16px; height:16px;"></i>
+                    <span>Falar no WhatsApp</span>
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Abrir Menu">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu Drawer -->
+        <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+            <a href="#showroom">Showroom</a>
+            <a href="#economia">Calculadora</a>
+            <a href="#modelos">Modelos</a>
+            <a href="#oficina">Oficina & Peças</a>
+            <a href="#faq">Dúvidas</a>
+            <a href="https://api.whatsapp.com/send?phone=5581996356458" target="_blank" class="mobile-nav-wa-link" data-track-source="mobile_nav_whatsapp">
+                <i data-feather="message-circle" style="width:18px; height:18px;"></i> Falar no WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero com Imagem Real em Destaque e Alta Credibilidade -->
+        <section id="showroom" class="hero-showroom">
+            <div class="container hero-editorial-grid">
+                <!-- Coluna Esquerda: Texto e Chamadas de Ação -->
+                <div class="hero-content-col gs-reveal">
+                    <div class="hero-eyebrow">
+                        <span class="badge-pulse-green"></span>
+                        <span>SHOWROOM & OFICINA PRÓPRIA • BOA VIAGEM</span>
+                    </div>
+                    
+                    <h1 class="hero-main-title">
+                        A revolução elétrica no seu <span class="hero-gradient-text">dia a dia.</span>
+                    </h1>
+                    
+                    <p class="hero-lead-text">
+                        Corte o trânsito, esqueça a gasolina e tenha a tranquilidade de contar com assistência técnica especializada e peças originais a pronta entrega no Recife.
+                    </p>
+
+                    <!-- Destaques Rápidos em Pílulas -->
+                    <div class="hero-features-strip">
+                        <div class="hero-feature-item">
+                            <i data-feather="battery-charging"></i>
+                            <div>
+                                <strong>Até 90 km</strong>
+                                <span>Autonomia Real</span>
+                            </div>
+                        </div>
+                        <div class="hero-feature-item">
+                            <i data-feather="shield-check"></i>
+                            <div>
+                                <strong>Sem CNH</strong>
+                                <span>100% Legalizado</span>
+                            </div>
+                        </div>
+                        <div class="hero-feature-item">
+                            <i data-feather="credit-card"></i>
+                            <div>
+                                <strong>Até 24x</strong>
+                                <span>No Cartão</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-group">
+                        <a href="#modelos" class="btn btn-primary" data-track="nav" data-track-action="hero_view_models">
+                            Ver Modelos Disponíveis <i data-feather="arrow-down" style="width:16px; height:16px;"></i>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20scooters%20da%20FastScooter." target="_blank" class="btn btn-electric" data-track-source="hero_whatsapp">
+                            <i data-feather="message-circle" style="width:18px; height:18px;"></i> Falar no WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="hero-trust-bar">
+                        <div class="stars-row">★★★★★</div>
+                        <span><strong>4.9/5.0</strong> — A loja de scooters elétricas nº 1 de Recife</span>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Fotografia Real do Showroom Perfeitamente Enquadrada -->
+                <div class="hero-showcase-col gs-reveal">
+                    <div class="hero-photo-showcase">
+                        <img src="hero_bg_real.jpg" alt="Showroom FastScooter Boa Viagem Recife" class="hero-showcase-img">
+                        <div class="hero-photo-floating-pill">
+                            <span class="badge-pulse-green"></span>
+                            <div class="pill-text">
+                                <strong>Showroom Oficial FastScooter</strong>
+                                <span>Av. Conselheiro Aguiar, 4880 - Boa Viagem • Test-Ride Liberado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Ticker -->
+        <div class="marquee-ticker">
+            <div class="marquee-track">
+                <div class="marquee-item"><span class="ticker-star">✦</span> ZERO GASOLINA</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> ECONOMIA DE ATÉ R$ 450/MÊS</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> SEM NECESSIDADE DE CNH</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> BATERIAS DE LÍTIO REMOVÍVEIS</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> OFICINA PRÓPRIA EM BOA VIAGEM (RECIFE)</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> ENTREGA SEGURA PARA TODO BRASIL</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> PARCELAMENTO EM ATÉ 24X NO CARTÃO</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> ZERO GASOLINA</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> ECONOMIA DE ATÉ R$ 450/MÊS</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> SEM NECESSIDADE DE CNH</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> BATERIAS DE LÍTIO REMOVÍVEIS</div>
+                <div class="marquee-item"><span class="ticker-star">✦</span> OFICINA PRÓPRIA EM BOA VIAGEM (RECIFE)</div>
+            </div>
+        </div>
+
+        <!-- Calculadora de Economia Urbana -->
+        <section id="economia" class="calc-section">
+            <div class="container calc-grid">
+                <div class="calc-content-left gs-reveal">
+                    <span class="section-tag-mono">SIMULADOR INTELIGENTE</span>
+                    <h2>Quanto dinheiro você economiza trocando combustível por eletricidade?</h2>
+                    <p>
+                        Carregar a bateria completa de uma scooter na tomada comum custa em média <strong>menos de R$ 1,50 por recarga</strong>. Veja a diferença na ponta do lápis:
+                    </p>
+                    
+                    <div style="display: flex; gap: 12px; flex-direction: column;">
+                        <div style="display:flex; align-items:center; gap:10px; font-size:0.92rem; color:var(--text-primary); font-weight:600;">
+                            <i data-feather="check" style="color:var(--electric-green-dark); width:18px; height:18px;"></i>
+                            Economia direta de combustível e estacionamento
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px; font-size:0.92rem; color:var(--text-primary); font-weight:600;">
+                            <i data-feather="check" style="color:var(--electric-green-dark); width:18px; height:18px;"></i>
+                            Custo de manutenção até 80% menor que motos convencionais
+                        </div>
+                        <div style="display:flex; align-items:center; gap:10px; font-size:0.92rem; color:var(--text-primary); font-weight:600;">
+                            <i data-feather="check" style="color:var(--electric-green-dark); width:18px; height:18px;"></i>
+                            Zero poluição sonora e zero emissão de carbono
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calc-card-box gs-reveal">
+                    <div class="calc-slider-group">
+                        <div class="calc-slider-header">
+                            <label for="km-slider">Distância percorrida por dia:</label>
+                            <span class="calc-slider-val" id="km-display">25 km/dia</span>
+                        </div>
+                        <input type="range" id="km-slider" class="calc-range-input" min="5" max="80" value="25" step="5">
+                    </div>
+
+                    <div class="calc-results-grid">
+                        <div class="calc-res-item">
+                            <span>Gasto Médio em Gasolina (mês)</span>
+                            <strong id="gas-cost" style="color:#DC2626;">R$ 390</strong>
+                        </div>
+                        <div class="calc-res-item">
+                            <span>Gasto na Tomada FastScooter (mês)</span>
+                            <strong id="electric-cost" style="color:var(--electric-green-dark);">R$ 18</strong>
+                        </div>
+                        <div class="calc-res-item highlight-res" style="grid-column: span 2;">
+                            <span>Sua Economia Estimada por Ano 💰</span>
+                            <strong id="year-savings">R$ 4.464,00 / ano</strong>
+                        </div>
+                    </div>
+
+                    <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Fiz%20a%20simulação%20no%20site%20e%20quero%20começar%20a%20economizar%20com%20uma%20Scooter%20Elétrica." target="_blank" class="btn btn-electric btn-block" data-track-source="calc_whatsapp">
+                        Quero Começar a Economizar Agora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vitrine de Modelos (Catálogo) -->
+        <section id="modelos" class="catalog-section">
+            <div class="container">
+                <div class="section-head-editorial gs-reveal">
+                    <div>
+                        <span class="section-tag-mono">COLEÇÃO EXCLUSIVA</span>
+                        <h2 class="section-title-lg">Escolha sua máquina.</h2>
+                    </div>
+                    
+                    <div class="filter-pills-bar">
+                        <button class="filter-pill-btn active" data-filter="all">Todos</button>
+                        <button class="filter-pill-btn" data-filter="range">Alta Autonomia</button>
+                        <button class="filter-pill-btn" data-filter="two-seats">2 Lugares</button>
+                    </div>
+                </div>
+
+                <div class="catalog-grid">
+                    <!-- Card S15 -->
+                    <div class="scooter-card gs-reveal" data-category="range">
+                        <span class="scooter-badge-top">ATÉ 90 KM AUTONOMIA</span>
+                        
+                        <div class="scooter-img-stage">
+                            <img src="prod_s15.jpeg" alt="Scooter S15">
+                        </div>
+                        
+                        <h3 class="scooter-name">SCOOTER S15</h3>
+                        <p class="scooter-summary">Projetada para grandes distâncias urbanas com bateria de alta densidade 60V 30Ah e visual futurista.</p>
+                        
+                        <div class="scooter-specs-bars">
+                            <div class="spec-bar-row">
+                                <span>Potência:</span>
+                                <strong>1000W</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Bateria:</span>
+                                <strong>60V 30Ah Lítio</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Velocidade Máxima:</span>
+                                <strong>32 km/h</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Torque:</span>
+                                <strong>135 N.m</strong>
+                            </div>
+                        </div>
+
+                        <div class="scooter-price-box">
+                            <span class="price-old">De R$ 15.900,00</span>
+                            <div class="price-installment-row">
+                                <div class="price-installment">12x de R$ 1.286,00</div>
+                                <span class="price-terms-tag">Até 24x no cartão</span>
+                            </div>
+                            <span class="price-cash-discount">À vista no PIX: R$ 13.600,00</span>
+                        </div>
+
+                        <div class="scooter-actions-dual">
+                            <a href="produto.html?id=s15" class="btn btn-ghost btn-sm">Ver Detalhes</a>
+                            <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Gostaria%20de%20comprar%20a%20Scooter%20S15." target="_blank" class="btn btn-electric btn-sm" data-track="buy" data-product-id="s15" data-product-name="Scooter S15 1000W" data-product-price="13600" data-track-source="catalog_buy_s15">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card A5 -->
+                    <div class="scooter-card gs-reveal" data-category="two-seats">
+                        <span class="scooter-badge-top" style="color:var(--electric-green-dark);">SEM CNH & 2 LUGARES</span>
+                        
+                        <div class="scooter-img-stage">
+                            <img src="prod_a5.jpeg" alt="Scooter A5">
+                        </div>
+                        
+                        <h3 class="scooter-name">SCOOTER A5 1000W</h3>
+                        <p class="scooter-summary">Bateria removível para recarregar no apartamento, capacidade para 2 pessoas (180kg) e alarme.</p>
+                        
+                        <div class="scooter-specs-bars">
+                            <div class="spec-bar-row">
+                                <span>Potência:</span>
+                                <strong>1000W | 60V</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Bateria:</span>
+                                <strong>Lítio Removível 24Ah</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Capacidade:</span>
+                                <strong>2 Passageiros</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Habilitação:</span>
+                                <strong>Dispensa CNH</strong>
+                            </div>
+                        </div>
+
+                        <div class="scooter-price-box">
+                            <span class="price-old">De R$ 15.750,00</span>
+                            <div class="price-installment-row">
+                                <div class="price-installment">12x de R$ 1.228,00</div>
+                                <span class="price-terms-tag">Até 24x no cartão</span>
+                            </div>
+                            <span class="price-cash-discount">À vista no PIX: R$ 12.990,00</span>
+                        </div>
+
+                        <div class="scooter-actions-dual">
+                            <a href="produto.html?id=a5" class="btn btn-ghost btn-sm">Ver Detalhes</a>
+                            <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Gostaria%20de%20comprar%20a%20Scooter%20A5%201000W." target="_blank" class="btn btn-electric btn-sm" data-track="buy" data-product-id="a5" data-product-name="Scooter A5 1000W" data-product-price="12990" data-track-source="catalog_buy_a5">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card G12 -->
+                    <div class="scooter-card gs-reveal" data-category="range">
+                        <span class="scooter-badge-top">DESIGN PREMIUM</span>
+                        
+                        <div class="scooter-img-stage">
+                            <img src="prod_g12.jpeg" alt="IRUN G12">
+                        </div>
+                        
+                        <h3 class="scooter-name">IRUN G12</h3>
+                        <p class="scooter-summary">Ciclística ágil e esportiva com painel 100% digital e aceleração macia para trajetos cotidianos.</p>
+                        
+                        <div class="scooter-specs-bars">
+                            <div class="spec-bar-row">
+                                <span>Potência:</span>
+                                <strong>1000W</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Bateria:</span>
+                                <strong>60V 30Ah Lítio</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Autonomia:</span>
+                                <strong>Até 90 km</strong>
+                            </div>
+                            <div class="spec-bar-row">
+                                <span>Torque:</span>
+                                <strong>125 N.m</strong>
+                            </div>
+                        </div>
+
+                        <div class="scooter-price-box">
+                            <span class="price-old">De R$ 15.500,00</span>
+                            <div class="price-installment-row">
+                                <div class="price-installment">12x de R$ 1.278,00</div>
+                                <span class="price-terms-tag">Até 24x no cartão</span>
+                            </div>
+                            <span class="price-cash-discount">À vista no PIX: R$ 13.490,00</span>
+                        </div>
+
+                        <div class="scooter-actions-dual">
+                            <a href="produto.html?id=g12" class="btn btn-ghost btn-sm">Ver Detalhes</a>
+                            <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Gostaria%20de%20comprar%20a%20IRUN%20G12." target="_blank" class="btn btn-electric btn-sm" data-track="buy" data-product-id="g12" data-product-name="IRUN G12 Urbana" data-product-price="13490" data-track-source="catalog_buy_g12">
+                                Comprar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão Consultar Todos os Modelos -->
+                <div class="catalog-footer-cta gs-reveal" style="text-align: center; margin-top: 3.5rem;">
+                    <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Gostaria%20de%20consultar%20o%20catálogo%20completo%20e%20todos%20os%20modelos%20disponíveis%20na%20FastScooter." target="_blank" class="btn btn-primary" data-track-source="catalog_all_models_whatsapp" style="padding: 18px 36px; font-size: 1rem; box-shadow: 0 8px 24px rgba(9, 10, 12, 0.15);">
+                        <i data-feather="message-circle" style="width:18px; height:18px;"></i>
+                        Consultar Todos os Modelos no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Oficina & Bastidores Reais (Boa Viagem / Recife) -->
+        <section id="oficina" class="workshop-section">
+            <div class="container">
+                <div class="text-center gs-reveal">
+                    <span class="section-tag-mono">INFRAESTRUTURA COMPLETA</span>
+                    <h2 class="section-title-lg">Oficina Própria & Assistência Técnica</h2>
+                    <p style="max-width: 600px; margin: 0.8rem auto 0; color: var(--text-secondary);">
+                        Diferente de revendedores que apenas vendem caixas, nós cuidamos da sua scooter com técnicos especializados e peças originais a pronta entrega.
+                    </p>
+                </div>
+
+                <div class="workshop-story-grid">
+                    <div class="workshop-img-collage gs-reveal">
+                        <img src="oficina_real.jpg" alt="Oficina e Manutenção Especializada FastScooter Recife">
+                        <div class="workshop-location-badge">
+                            <div>
+                                <h4>Centro Técnico Especializado</h4>
+                                <p>Av. Conselheiro Aguiar, 4880 - Boa Viagem, Recife/PE</p>
+                            </div>
+                            <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Gostaria%20de%20agendar%20uma%20revisão/manutenção." target="_blank" class="btn btn-primary btn-sm" data-track-source="workshop_schedule_whatsapp">
+                                Agendar
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="workshop-steps gs-reveal">
+                        <div class="workshop-step-card">
+                            <div class="step-num-mono">01</div>
+                            <div class="step-info">
+                                <h3>Blindagem Anti-Furos para Pneus</h3>
+                                <p>Aplicação de gel selante de alta tecnologia para você pilotar sem o receio de ficar parado com pneu furado.</p>
+                            </div>
+                        </div>
+
+                        <div class="workshop-step-card">
+                            <div class="step-num-mono">02</div>
+                            <div class="step-info">
+                                <h3>Diagnóstico e Balanceamento de Baterias</h3>
+                                <p>Equipamentos de medição de células de lítio para garantir longevidade, máxima autonomia e segurança total.</p>
+                            </div>
+                        </div>
+
+                        <div class="workshop-step-card">
+                            <div class="step-num-mono">03</div>
+                            <div class="step-info">
+                                <h3>Estoque de Peças Genuínas</h3>
+                                <p>Aceleradores, manetes de freio hidráulico, pastilhas, carregadores inteligentes e módulos originais.</p>
+                            </div>
+                        </div>
+
+                        <div class="workshop-step-card">
+                            <div class="step-num-mono">04</div>
+                            <div class="step-info">
+                                <h3>Suporte Técnico Remoto Dedicado</h3>
+                                <p>Clientes de outros estados recebem orientação passo a passo por chamada de vídeo para manutenções básicas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos Reais -->
+        <section class="reviews-section">
+            <div class="container">
+                <div class="text-center gs-reveal">
+                    <span class="section-tag-mono">AVALIAÇÕES REAIS</span>
+                    <h2 class="section-title-lg">O que nossos clientes dizem.</h2>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card gs-reveal">
+                        <div>
+                            <div class="review-stars-row">
+                                <i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i>
+                            </div>
+                            <p class="review-quote">"Melhor compra que fiz na vida. Vou e volto do trabalho em Boa Viagem todo dia, não gasto um centavo de gasolina e a oficina deles resolve qualquer detalhe em minutos."</p>
+                        </div>
+                        <div class="review-client">
+                            <div class="client-avatar-monogram">RA</div>
+                            <div class="client-meta">
+                                <strong>Ricardo Ayres</strong>
+                                <span>Scooter S15 • Recife/PE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card gs-reveal">
+                        <div>
+                            <div class="review-stars-row">
+                                <i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i>
+                            </div>
+                            <p class="review-quote">"Comprei a A5 de 2 lugares pra andar com minha esposa. É super silenciosa, sobe qualquer ladeira e a bateria removível é uma mão na roda para carregar dentro de casa."</p>
+                        </div>
+                        <div class="review-client">
+                            <div class="client-avatar-monogram">VD</div>
+                            <div class="client-meta">
+                                <strong>Valéria & Diego</strong>
+                                <span>Scooter A5 • Olinda/PE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card gs-reveal">
+                        <div>
+                            <div class="review-stars-row">
+                                <i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i>
+                            </div>
+                            <p class="review-quote">"Moro a mais de 700km de distância. Eles enviaram minha scooter super bem embalada e o suporte me ajudou na montagem por vídeo. Atendimento impecável!"</p>
+                        </div>
+                        <div class="review-client">
+                            <div class="client-avatar-monogram">AO</div>
+                            <div class="client-meta">
+                                <strong>Amauri Oliveira</strong>
+                                <span>IRUN G12 • Bahia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perguntas Frequentes (FAQ) -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="text-center gs-reveal">
+                    <span class="section-tag-mono">TIRE SUAS DÚVIDAS</span>
+                    <h2 class="section-title-lg">Perguntas Frequentes</h2>
+                </div>
+
+                <div class="faq-list-wrap">
+                    <div class="faq-card gs-reveal">
+                        <button class="faq-btn-trigger">
+                            Preciso de CNH ou emplacamento para rodar?
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                        <div class="faq-drawer">
+                            <p>Modelos como a Scooter A5 e os patinetes elétricos enquadram-se na legislação brasileira como equipamentos de mobilidade individual autopropelidos, dispensando a necessidade de CNH (Carteira Nacional de Habilitação) e emplacamento para uso urbano.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card gs-reveal">
+                        <button class="faq-btn-trigger">
+                            Como é feita a recarga da bateria e qual o custo?
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                        <div class="faq-drawer">
+                            <p>A recarga é feita em qualquer tomada comum de 110V ou 220V com o carregador inteligente incluso. O custo médio de uma recarga completa varia entre R$ 0,90 e R$ 1,50 na tarifa residencial, proporcionando autonomia para dezenas de quilômetros.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card gs-reveal">
+                        <button class="faq-btn-trigger">
+                            Como funciona o envio para outros estados do Brasil?
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                        <div class="faq-drawer">
+                            <p>Trabalhamos com transportadoras com cobertura securitária integral. O veículo viaja em engradado reforçado e com rastreamento ativo até a sua porta, com suporte técnico disponível na entrega.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card gs-reveal">
+                        <button class="faq-btn-trigger">
+                            Qual a garantia e onde faço as revisões?
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                        <div class="faq-drawer">
+                            <p>Oferecemos garantia de fábrica cobrindo motor, módulo eletrônico e baterias de lítio. Você pode realizar suas manutenções preventivas em nossa oficina física em Boa Viagem (Recife/PE) ou solicitar peças de reposição enviadas no mesmo dia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid-layout">
+            <div class="footer-brand-bio">
+                <a href="index.html" class="brand-logo" style="font-size:1.5rem;">
+                    FAST<span>SCOOTER</span>
+                    <div class="brand-logo-dot"></div>
+                </a>
+                <p>
+                    Reescrevendo a mobilidade urbana no Brasil com veículos 100% elétricos, sustentabilidade e assistência técnica qualificada.
+                </p>
+                <div class="footer-social-links">
+                    <a href="https://www.instagram.com/fastsscooter" target="_blank" class="social-pill" title="Instagram"><i data-feather="instagram" style="width:16px; height:16px;"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=5581996356458" target="_blank" class="social-pill" title="WhatsApp"><i data-feather="message-circle" style="width:16px; height:16px;"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="footer-column-title">Navegação</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#showroom">Showroom</a></li>
+                    <li><a href="#economia">Calculadora de Economia</a></li>
+                    <li><a href="#modelos">Modelos Disponíveis</a></li>
+                    <li><a href="#oficina">Oficina Técnica</a></li>
+                    <li><a href="#faq">Dúvidas Frequentes</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-column-title">Modelos</h4>
+                <ul class="footer-links-list">
+                    <li><a href="produto.html?id=s15">Scooter S15 (90km)</a></li>
+                    <li><a href="produto.html?id=a5">Scooter A5 (2 Lugares)</a></li>
+                    <li><a href="produto.html?id=g12">IRUN G12 Urbana</a></li>
+                    <li><a href="#oficina">Blindagem Anti-Furo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-address-info">
+                <h4 class="footer-column-title">Base Operacional</h4>
+                <p><i data-feather="map-pin"></i> Av. Conselheiro Aguiar, 4880 - Loja 37<br>Boa Viagem, Recife/PE - 51021-020</p>
+                <p><i data-feather="phone"></i> (81) 99635-6458</p>
+                <p><i data-feather="mail"></i> fasts.cootershop@gmail.com</p>
+                <p style="font-size:0.75rem; color:var(--text-muted); margin-top:6px;">CNPJ: 43.125.951/0001-08</p>
+            </div>
+        </div>
+
+        <div class="container footer-bottom-bar">
+            <p>&copy; 2026 FastScooter Brasil. Todos os direitos reservados.</p>
+            <p>Mobilidade Elétrica Inteligente & Sustentável.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=5581996356458&text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor%20da%20FastScooter." target="_blank" class="floating-whatsapp" title="Falar no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+      feather.replace();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
