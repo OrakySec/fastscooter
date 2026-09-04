@@ -1,0 +1,7 @@
+services:
+  fastscooter:
+    image: ghcr.io/orakysec/fastscooter:latest
+    container_name: fastscooter
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
