@@ -23,7 +23,7 @@ const FAST_TRACKING_CONFIG = {
 
     // Google Ads Conversion Label para WhatsApp / Lead (Opcional)
     // Exemplo: 'AbCdEfGhIjK'
-    GOOGLE_ADS_CONVERSION_LABEL: 'YOUR_CONVERSION_LABEL',
+    GOOGLE_ADS_CONVERSION_LABEL: 'J5p3CJ2B5-8cEJ__rdJE',
 
     // Google Tag Manager Container ID (Opcional, se preferir via GTM)
     // Exemplo: 'GTM-XXXXXXX'
@@ -289,7 +289,9 @@ window.FastTracking = {
 
             if (FAST_TRACKING_CONFIG.GOOGLE_ADS_ID && FAST_TRACKING_CONFIG.GOOGLE_ADS_CONVERSION_LABEL && !FAST_TRACKING_CONFIG.GOOGLE_ADS_CONVERSION_LABEL.includes('YOUR_')) {
                 gtag('event', 'conversion', {
-                    send_to: FAST_TRACKING_CONFIG.GOOGLE_ADS_ID + '/' + FAST_TRACKING_CONFIG.GOOGLE_ADS_CONVERSION_LABEL
+                    send_to: FAST_TRACKING_CONFIG.GOOGLE_ADS_ID + '/' + FAST_TRACKING_CONFIG.GOOGLE_ADS_CONVERSION_LABEL,
+                    value: 1.0,
+                    currency: 'BRL'
                 });
             }
         }
