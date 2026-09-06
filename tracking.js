@@ -19,7 +19,7 @@ const FAST_TRACKING_CONFIG = {
 
     // Google Ads (Conversion Tracking ID)
     // Exemplo: 'AW-XXXXXXXXXX'
-    GOOGLE_ADS_ID: 'YOUR_GOOGLE_ADS_ID',
+    GOOGLE_ADS_ID: 'AW-18426331039',
 
     // Google Ads Conversion Label para WhatsApp / Lead (Opcional)
     // Exemplo: 'AbCdEfGhIjK'
