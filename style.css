@@ -994,6 +994,29 @@ img {
     color: var(--electric-green-dark);
 }
 
+.price-consult-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-consult {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-hero);
+    line-height: 1.2;
+}
+
+.price-consult-note {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--electric-green-dark);
+}
+
 .scooter-actions-dual {
     display: grid;
     grid-template-columns: 1fr 1fr;
